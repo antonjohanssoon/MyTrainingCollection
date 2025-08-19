@@ -44,7 +44,10 @@ namespace Application.Commands.WorkoutSessions.CreateWorkoutSession
             var user = userResult.Data;
 
             var dto = request.Session;
-            var session = new WorkoutSession(dto.Date, user, dto.Notes ?? string.Empty);
+            var session = new WorkoutSession(dto.Date, user, dto.Notes ?? string.Empty)
+            {
+                UserId = user.Id
+            };
 
             foreach (var exercise in dto.Exercises)
             {

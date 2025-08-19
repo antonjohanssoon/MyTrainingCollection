@@ -1,4 +1,4 @@
-﻿using Application.Interfaces.RepositoryInterface;
+﻿using Application.Interfaces.RepositoryInterfaces;
 using Application.Queries.Users.Login.Helpers;
 using Domain;
 using MediatR;
@@ -8,7 +8,7 @@ namespace Application.Queries.Users.Login
 {
     public class LoginUserQueryHandler : IRequestHandler<LoginUserQuery, OperationResult<string>>
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly ILogger<LoginUserQueryHandler> _logger;
         private readonly TokenHelper _tokenHelper;
 
