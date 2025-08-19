@@ -1,4 +1,4 @@
-﻿using Application.Interfaces.RepositoryInterface;
+﻿using Application.Interfaces.RepositoryInterfaces;
 using Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -7,10 +7,10 @@ namespace Application.Commands.Users.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, OperationResult<User>>
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly ILogger<CreateUserCommandHandler> _logger;
 
-        public CreateUserCommandHandler(IRepository<User> userRepository, ILogger<CreateUserCommandHandler> logger)
+        public CreateUserCommandHandler(IUserRepository userRepository, ILogger<CreateUserCommandHandler> logger)
         {
             _userRepository = userRepository;
             _logger = logger;
