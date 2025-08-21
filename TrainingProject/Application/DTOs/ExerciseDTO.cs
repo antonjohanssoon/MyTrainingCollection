@@ -5,6 +5,7 @@ namespace Application.DTOs
     public enum ExerciseType { Strength, Cardio }
     public class ExerciseDTO
     {
+        public Guid? Id { get; set; }
         public ExerciseType Type { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Name must be between 2 and 50 characters.")]
