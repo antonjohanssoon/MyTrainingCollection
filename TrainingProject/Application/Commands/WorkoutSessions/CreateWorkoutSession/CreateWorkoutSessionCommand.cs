@@ -8,11 +8,5 @@ namespace Application.Commands.WorkoutSessions.CreateWorkoutSession
     {
         public Guid UserId { get; }
         public WorkoutSessionDTO Session { get; }
-
-        public CreateWorkoutSessionCommand(Guid userId, WorkoutSessionDTO session)
-        {
-            UserId = userId;
-            Session = session;
-        }
     }
 }

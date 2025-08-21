@@ -19,6 +19,8 @@ namespace Infrastructure
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IWorkoutSessionRepository, WorkoutSessionRepository>();
+
 
             return services;
         }

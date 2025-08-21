@@ -21,8 +21,8 @@ namespace Application.Commands.Users.CreateUser
 
             _logger.LogInformation("Handling CreateUserCommand for user: {Name}", request.NewUser.Name);
 
-            var existingUser = await _userRepository.GetByUsernameAsync(request.NewUser.Username);
-            if (existingUser.IsSuccess)
+            var taken = await _userRepository.UsernameExistsAsync(request.NewUser.Username, cancellationToken);
+            if (taken)
             {
                 return OperationResult<User>.Failure("Username already taken", "Validation error.");
             }
